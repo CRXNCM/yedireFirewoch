@@ -1,0 +1,67 @@
+.social-media-management {
+  padding: 20px;
+}
+
+.social-media-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.add-link-btn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.loading-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100px;
+}
+
+.error-message {
+  color: red;
+  margin: 10px 0;
+  padding: 10px;
+  border: 1px solid red;
+  border-radius: 5px;
+}
+
+.social-links-table {
+  margin-top: 20px;
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.social-links-table th, .social-links-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+.social-links-table th {
+  background-color: #f2f2f2;
+}
+
+.status-badge {
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+.status-badge.active {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.status-badge.inactive {
+  background-color: #f44336;
+  color: white;
+}
+
+.icon-cell {
+  text-align: center;
+}

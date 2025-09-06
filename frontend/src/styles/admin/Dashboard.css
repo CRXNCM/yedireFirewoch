@@ -1,0 +1,497 @@
+.dashboard {
+  padding: 10px;
+}
+
+.dashboard h1 {
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.stat-cards {
+  /* Dashboard styles */
+  .dashboard {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    margin-bottom: 30px;
+  }
+  
+  .stat-card {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .stat-icon {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    color: #3498db;
+  }
+  
+  .stat-value {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 5px;
+    color: #333;
+  }
+  
+  .stat-label {
+    font-size: 1rem;
+    color: #666;
+  }
+  
+  .recent-activity {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    padding: 20px;
+  }
+  
+  .activity-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 15px;
+    color: #333;
+  }
+  
+  .activity-list {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .activity-item {
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
+  }
+  
+  .activity-item:last-child {
+    border-bottom: none;
+  }
+  
+  .activity-date {
+    font-size: 0.8rem;
+    color: #999;
+  }
+}
+
+.stat-info {
+  flex: 1;
+}
+
+.stat-info h3 {
+  margin: 0 0 5px 0;
+  font-size: 1rem;
+  color: #666;
+}
+
+.stat-value {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin: 0;
+  color: #333;
+}
+
+.dashboard-content {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 20px;
+}
+
+.recent-activity, .quick-actions {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+}
+
+.recent-activity h2, .quick-actions h2 {
+  margin-top: 0;
+  color: #333;
+  border-bottom: 2px solid #f1f1f1;
+  padding-bottom: 10px;
+  margin-bottom: 15px;
+}
+
+.loading {
+  text-align: center;
+  padding: 40px;
+  color: #666;
+  font-size: 1.1rem;
+}
+
+@media (max-width: 991px) {
+  .dashboard-content {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .stat-cards {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Dashboard Container */
+.dashboard-container {
+  padding: 30px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.dashboard-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.dashboard-header h1 {
+  color: #2d3748;
+  font-size: 2.5rem;
+  margin: 0 0 10px 0;
+  font-weight: 700;
+}
+
+.dashboard-header p {
+  color: #718096;
+  font-size: 1.1rem;
+  margin: 0;
+}
+
+/* Main Stats Grid */
+.impact-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
+  margin-bottom: 40px;
+}
+
+.stat-card {
+  background: white;
+  border-radius: 12px;
+  padding: 25px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  border: 1px solid #e2e8f0;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+.stat-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.1);
+}
+
+.stat-card.students {
+  border-left: 4px solid #4299e1;
+}
+
+.stat-card.schools {
+  border-left: 4px solid #48bb78;
+}
+
+.stat-card.communities {
+  border-left: 4px solid #ed8936;
+}
+
+.stat-card.testimonials {
+  border-left: 4px solid #9f7aea;
+}
+
+.stat-card.volunteers {
+  border-left: 4px solid #ed8936;
+}
+
+.stat-icon {
+  font-size: 2.5rem;
+  color: #4a5568;
+  margin-bottom: 15px;
+}
+
+.stat-number {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #2d3748;
+  margin-bottom: 10px;
+}
+
+.stat-label {
+  font-size: 1rem;
+  color: #718096;
+  font-weight: 500;
+}
+
+.loading-placeholder {
+  color: #cbd5e0;
+  font-style: italic;
+}
+
+/* Quick Actions Section */
+.quick-actions-section {
+  margin-bottom: 40px;
+}
+
+.quick-actions-section h2 {
+  color: #2d3748;
+  font-size: 1.8rem;
+  margin: 0 0 25px 0;
+  font-weight: 600;
+}
+
+.quick-actions-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.quick-action-card {
+  background: white;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  border: 1px solid #e2e8f0;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.quick-action-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.quick-action-card.schools {
+  border-left: 4px solid #48bb78;
+}
+
+.quick-action-card.testimonials {
+  border-left: 4px solid #9f7aea;
+}
+
+.quick-action-card.banks {
+  border-left: 4px solid #4299e1;
+}
+
+.quick-action-card.sponsors {
+  border-left: 4px solid #ed8936;
+}
+
+.quick-action-card.gallery {
+  border-left: 4px solid #f56565;
+}
+
+.quick-action-card.urgent {
+  border-left: 4px solid #e53e3e;
+}
+
+.action-icon {
+  font-size: 2rem;
+  color: #4a5568;
+  flex-shrink: 0;
+}
+
+.action-content h3 {
+  color: #2d3748;
+  font-size: 1.2rem;
+  margin: 0 0 5px 0;
+  font-weight: 600;
+}
+
+.action-content p {
+  color: #718096;
+  font-size: 0.9rem;
+  margin: 0;
+  line-height: 1.4;
+}
+
+/* Additional Stats */
+.additional-stats {
+  margin-bottom: 40px;
+}
+
+.additional-stats h2 {
+  color: #2d3748;
+  font-size: 1.8rem;
+  margin: 0 0 25px 0;
+  font-weight: 600;
+}
+
+.stats-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.stat-item {
+  background: white;
+  border-radius: 8px;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  border: 1px solid #e2e8f0;
+}
+
+.stat-item svg {
+  font-size: 2rem;
+  color: #4a5568;
+  margin-bottom: 10px;
+}
+
+.stat-item .stat-number {
+  display: block;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #2d3748;
+  margin-bottom: 5px;
+}
+
+.stat-item .stat-label {
+  font-size: 0.9rem;
+  color: #718096;
+  font-weight: 500;
+}
+
+/* Recent Activity */
+.recent-activity {
+  margin-bottom: 40px;
+}
+
+.recent-activity h2 {
+  color: #2d3748;
+  font-size: 1.8rem;
+  margin: 0 0 25px 0;
+  font-weight: 600;
+}
+
+.activity-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.activity-item {
+  background: white;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  border: 1px solid #e2e8f0;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  transition: all 0.3s ease;
+}
+
+.activity-item:hover {
+  transform: translateX(5px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.activity-item.school {
+  border-left: 4px solid #48bb78;
+}
+
+.activity-item.students {
+  border-left: 4px solid #4299e1;
+}
+
+.activity-item.communities {
+  border-left: 4px solid #ed8936;
+}
+
+.activity-item.testimonials {
+  border-left: 4px solid #9f7aea;
+}
+
+.activity-item.volunteers {
+  border-left: 4px solid #ed8936;
+}
+
+.activity-icon {
+  font-size: 1.8rem;
+  color: #4a5568;
+  flex-shrink: 0;
+}
+
+.activity-content {
+  flex: 1;
+}
+
+.activity-content h4 {
+  color: #2d3748;
+  font-size: 1.1rem;
+  margin: 0 0 5px 0;
+  font-weight: 600;
+}
+
+.activity-content p {
+  color: #718096;
+  font-size: 0.9rem;
+  margin: 0;
+  line-height: 1.4;
+}
+
+.activity-count {
+  background: #f7fafc;
+  color: #4a5568;
+  font-weight: 700;
+  font-size: 1.2rem;
+  padding: 8px 16px;
+  border-radius: 20px;
+  border: 1px solid #e2e8f0;
+  flex-shrink: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .dashboard-container {
+    padding: 20px;
+  }
+  
+  .dashboard-header h1 {
+    font-size: 2rem;
+  }
+  
+  .impact-stats-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .quick-actions-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .stats-row {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .activity-item {
+    flex-direction: column;
+    text-align: center;
+    gap: 15px;
+  }
+  
+  .activity-count {
+    align-self: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .stats-row {
+    grid-template-columns: 1fr;
+  }
+  
+  .stat-card {
+    padding: 20px;
+  }
+  
+  .stat-number {
+    font-size: 2rem;
+  }
+}

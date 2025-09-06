@@ -1,0 +1,101 @@
+/* Schools List styles */
+.schools-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.school-card {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.school-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.school-card h3 {
+  margin-top: 0;
+  margin-bottom: 15px;
+  color: #333;
+  font-size: 18px;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 10px;
+}
+
+.school-details {
+  margin-bottom: 15px;
+}
+
+.school-details p {
+  margin: 5px 0;
+  font-size: 14px;
+  color: #666;
+}
+
+.school-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.school-actions button {
+  flex: 1;
+  padding: 8px;
+  border: none;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  transition: background-color 0.3s;
+}
+
+.edit-btn {
+  background-color: #3498db;
+  color: white;
+}
+
+.edit-btn:hover {
+  background-color: #2980b9;
+}
+
+.images-btn {
+  background-color: #9b59b6;
+  color: white;
+}
+
+.images-btn:hover {
+  background-color: #8e44ad;
+}
+
+.delete-btn {
+  background-color: #e74c3c;
+  color: white;
+}
+
+.delete-btn:hover {
+  background-color: #c0392b;
+}
+
+.loading, .no-schools {
+  text-align: center;
+  padding: 20px;
+  color: #666;
+}
+
+.school-actions button svg {
+  margin-right: 5px;
+}
+
+@media (max-width: 768px) {
+  .schools-list {
+    grid-template-columns: 1fr;
+  }
+}

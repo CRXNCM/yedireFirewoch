@@ -1,0 +1,314 @@
+{
+  "info": {
+    "name": "Donation Website API",
+    "description": "Complete API testing collection for the donation website backend",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:5001",
+      "type": "string"
+    },
+    {
+      "key": "token",
+      "value": "",
+      "type": "string"
+    }
+  ],
+  "item": [
+    {
+      "name": "01. Health Check",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/api/health",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "health"]
+        }
+      }
+    },
+    {
+      "name": "02. Admin Login",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"email\": \"admin@example.com\",\n  \"password\": \"admin123\"\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/auth/login",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "auth", "login"]
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "if (pm.response.code === 200) {",
+              "    const response = pm.response.json();",
+              "    pm.collectionVariables.set('token', response.token);",
+              "    console.log('Token saved:', response.token);",
+              "}"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "03. Get Current User",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{token}}"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/api/auth/me",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "auth", "me"]
+        }
+      }
+    },
+    {
+      "name": "04. Get All Alerts (Public)",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/api/alerts",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "alerts"]
+        }
+      }
+    },
+    {
+      "name": "05. Create Alert (Admin)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{token}}"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"title\": \"Urgent: Water Crisis in Village X\",\n  \"message\": \"We need immediate support to provide clean water to 500+ families in Village X. Your donation can save lives.\",\n  \"type\": \"urgent\",\n  \"priority\": 10,\n  \"showOnPages\": [\"home\", \"donate\"]\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/alerts",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "alerts"]
+        }
+      }
+    },
+    {
+      "name": "06. Get All Banks (Public)",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/api/banks",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "banks"]
+        }
+      }
+    },
+    {
+      "name": "07. Create Bank (Admin)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{token}}"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"bankName\": \"Commercial Bank of Ethiopia\",\n  \"accountName\": \"Yedire Firewoch Charity Organization\",\n  \"accountNumber\": \"1000123456789\",\n  \"currency\": \"ETB\",\n  \"country\": \"Ethiopia\",\n  \"isPrimary\": true,\n  \"description\": \"Primary donation account for Ethiopian Birr donations\"\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/banks",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "banks"]
+        }
+      }
+    },
+    {
+      "name": "08. Get All Schools (Public)",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/api/schools",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "schools"]
+        }
+      }
+    },
+    {
+      "name": "09. Create School (Admin)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{token}}"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"Addis Ababa Primary School\",\n  \"description\": \"A rural primary school serving 300+ children in need of basic infrastructure improvements including clean water, proper classrooms, and educational materials.\",\n  \"location\": {\n    \"city\": \"Addis Ababa\",\n    \"region\": \"Addis Ababa\",\n    \"country\": \"Ethiopia\"\n  },\n  \"stats\": {\n    \"studentsCount\": 350,\n    \"teachersCount\": 12,\n    \"classroomsCount\": 8\n  },\n  \"fundingGoal\": 50000,\n  \"needs\": [\n    {\n      \"item\": \"Clean Water System\",\n      \"description\": \"Install water pumps and filtration system\",\n      \"priority\": \"urgent\",\n      \"estimatedCost\": 15000\n    },\n    {\n      \"item\": \"Classroom Renovation\",\n      \"description\": \"Repair and paint 8 classrooms\",\n      \"priority\": \"high\",\n      \"estimatedCost\": 20000\n    }\n  ]\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/schools",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "schools"]
+        }
+      }
+    },
+    {
+      "name": "10. Get All Testimonials (Public)",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/api/testimonials",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "testimonials"]
+        }
+      }
+    },
+    {
+      "name": "11. Create Testimonial (Admin)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{token}}"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"Sarah Johnson\",\n  \"message\": \"Supporting this organization has been incredibly rewarding. Seeing the impact of my donations on children's education in Ethiopia gives me hope for a better future.\",\n  \"title\": \"Regular Donor\",\n  \"organization\": \"Microsoft\",\n  \"type\": \"donor\",\n  \"location\": \"Seattle, USA\",\n  \"rating\": 5,\n  \"isFeatured\": true\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/testimonials",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "testimonials"]
+        }
+      }
+    },
+    {
+      "name": "12. Get All Sponsors (Public)",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/api/sponsors",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "sponsors"]
+        }
+      }
+    },
+    {
+      "name": "13. Create Sponsor (Admin)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{token}}"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"Global Education Foundation\",\n  \"description\": \"Supporting education initiatives across Africa\",\n  \"website\": \"https://globaleducation.org\",\n  \"contactInfo\": {\n    \"email\": \"partnerships@globaleducation.org\",\n    \"phone\": \"+1-555-0123\"\n  },\n  \"sponsorshipType\": \"financial\",\n  \"sponsorshipLevel\": \"gold\",\n  \"contributionAmount\": 25000,\n  \"currency\": \"USD\"\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/sponsors",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "sponsors"]
+        }
+      }
+    },
+    {
+      "name": "14. Upload Image (Admin)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{token}}"
+          }
+        ],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "image",
+              "type": "file",
+              "src": "Choose a JPG/PNG file"
+            }
+          ]
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/upload/image",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "upload", "image"]
+        }
+      }
+    },
+    {
+      "name": "15. Verify Token (Admin)",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{token}}"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/api/auth/verify-token",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "auth", "verify-token"]
+        }
+      }
+    }
+  ]
+}

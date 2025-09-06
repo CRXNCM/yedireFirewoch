@@ -1,0 +1,126 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  color: #333;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+main {
+  min-height: 100vh;
+  width: 100%;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.container {
+  max-width: 100%;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+section {
+  padding: 80px 0;
+  width: 100%;
+}
+
+img {
+  max-width: 100%;
+}
+
+.App {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+/* Remove the Vite default styles below */
+#root {
+  max-width: 100%;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0;
+  text-align: center;
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
+
+
+/* Add or update these color variables */
+:root {
+  --primary-color: #4CAF50;      /* Light green */
+  --primary-dark: #388E3C;       /* Darker green for hover states */
+  --primary-light: #C8E6C9;      /* Very light green for backgrounds */
+  --accent-color: #8BC34A;       /* Lighter green accent */
+  --text-on-primary: #ffffff;    /* White text on green backgrounds */
+}
+
+/* Update any existing button styles */
+.btn-primary {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+  color: var(--text-on-primary);
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-dark);
+  border-color: var(--primary-dark);
+}
+
+/* Update divider colors */
+.divider {
+  background-color: var(--primary-color) !important;
+}
+
+/* Update active link colors */
+.active {
+  color: var(--primary-color) !important;
+}
+
+/* Update breadcrumb active colors */
+.breadcrumb-nav .active {
+  color: var(--primary-color) !important;
+}

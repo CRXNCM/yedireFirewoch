@@ -212,7 +212,32 @@ MAX_FILE_SIZE=5242880
 
 ### Quick Database Setup
 
-#### Option 1: Import SQL Dump (Recommended)
+#### Option 1: XAMPP Setup (Recommended for Windows)
+1. **Install XAMPP**
+   - Download from [https://www.apachefriends.org/](https://www.apachefriends.org/)
+   - Install and start Apache and MySQL services
+
+2. **Access phpMyAdmin**
+   - Open browser and go to `http://localhost/phpmyadmin`
+   - Click "New" to create a new database
+
+3. **Create Database**
+   ```sql
+   -- Database name: yedire_frewoch
+   -- Collation: utf8mb4_general_ci
+   ```
+
+4. **Import SQL File**
+   - Select the `yedire_frewoch` database
+   - Click "Import" tab
+   - Choose file: `yedire_frewoch.sql`
+   - Click "Go" to import
+
+5. **Verify Import**
+   - Check that all tables are created
+   - Verify sample data is loaded
+
+#### Option 2: Command Line (MySQL/MariaDB)
 ```bash
 # Create database
 mysql -u root -p -e "CREATE DATABASE yedire_frewoch CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;"
@@ -221,7 +246,7 @@ mysql -u root -p -e "CREATE DATABASE yedire_frewoch CHARACTER SET utf8mb4 COLLAT
 mysql -u root -p yedire_frewoch < yedire_frewoch.sql
 ```
 
-#### Option 2: Manual Setup
+#### Option 3: Manual SQL Setup
 ```sql
 -- Create database
 CREATE DATABASE yedire_frewoch CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
@@ -257,6 +282,17 @@ The application uses MySQL with the following main entities:
 #### Environment Variables
 Update your `.env` file with the correct database credentials:
 
+**For XAMPP (Default Configuration):**
+```env
+# Database Configuration
+DB_HOST=localhost
+DB_USER=root
+DB_PASSWORD=
+DB_NAME=yedire_frewoch
+DB_PORT=3306
+```
+
+**For Custom MySQL Installation:**
 ```env
 # Database Configuration
 DB_HOST=localhost
@@ -314,6 +350,41 @@ mysql -u root -p yedire_frewoch < yedire_frewoch_backup_20250106.sql
 - **Indexes** - Optimized for common queries
 - **Character Set** - UTF8MB4 for full Unicode support
 - **Engine** - InnoDB for ACID compliance and foreign keys
+
+### XAMPP Troubleshooting
+
+#### Common Issues and Solutions
+
+**1. MySQL Service Won't Start**
+- Check if port 3306 is already in use
+- Run XAMPP as Administrator
+- Check Windows Firewall settings
+
+**2. phpMyAdmin Access Denied**
+- Default XAMPP MySQL has no password
+- Use `root` as username with empty password
+- If you set a password, update your `.env` file accordingly
+
+**3. Import File Too Large**
+- Increase `upload_max_filesize` in `php.ini`
+- Increase `post_max_size` in `php.ini`
+- Restart Apache after changes
+
+**4. Character Set Issues**
+- Ensure database uses `utf8mb4` collation
+- Check table collation in phpMyAdmin
+- Verify connection charset in application
+
+**5. Permission Errors**
+- Ensure MySQL user has proper privileges
+- Grant all privileges: `GRANT ALL PRIVILEGES ON yedire_frewoch.* TO 'root'@'localhost';`
+- Flush privileges: `FLUSH PRIVILEGES;`
+
+#### XAMPP File Locations
+- **MySQL Data**: `C:\xampp\mysql\data\`
+- **phpMyAdmin**: `C:\xampp\phpMyAdmin\`
+- **MySQL Config**: `C:\xampp\mysql\bin\my.ini`
+- **PHP Config**: `C:\xampp\php\php.ini`
 
 ---
 

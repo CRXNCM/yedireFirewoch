@@ -310,7 +310,7 @@ This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) 
 ### Get in Touch
 - **Website**: [www.yedirefirewoch.org](https://www.yedirefirewoch.org)
 - **Email**: info@yedirefirewoch.org
-- **Phone**: +251-XX-XXX-XXXX
+- **Phone**: +251-925-254-765
 - **Address**: Dire Dawa, Ethiopia
 
 ### Support the Cause
@@ -324,7 +324,7 @@ This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) 
 <div align="center">
 
 **Made with ❤️ for the children and communities of Ethiopia**
-
+*Devloped by DDAC - DDU SOFTWARE ENINGEERING INTERN TEAM*
 *YeDire Firewoch - One for Another*
 
 </div>

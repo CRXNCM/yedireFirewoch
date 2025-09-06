@@ -2,7 +2,7 @@
 
 <div align="center">
 
-![YeDire Firewoch Logo](frontend/src/assets/images/logo.png)
+![YeDire Firewoch Logo](frontend/src/assets/images/lg.png)
 
 **"One for Another" - Making a Difference in Ethiopia**
 

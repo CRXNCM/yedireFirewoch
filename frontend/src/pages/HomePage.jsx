@@ -246,8 +246,10 @@ const HomePage = () => {
   return (
     <div className="home-page">
       {/* Hero Section */}
-      <section className="hero-section" style={{ backgroundImage: `url(${heroImage})` }}>
-        <div className="overlay"></div>
+      <section className="hero-section">
+        <div className="hero-image" style={{ backgroundImage: `url(${heroImage})` }}>
+          <div className="overlay"></div>
+        </div>
         <div className="hero-content">
           <h1>One for another!</h1>
           <h2 className="amharic-text">አንዳችን ለአንዳችን!</h2>

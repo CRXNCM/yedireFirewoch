@@ -202,18 +202,118 @@ MAX_FILE_SIZE=5242880
 
 ---
 
-## 🗄️ Database Schema
+## 🗄️ Database Setup
+
+### Database Requirements
+- **MySQL** 8.0 or higher (or MariaDB 10.4+)
+- **Database Name**: `yedire_frewoch`
+- **Character Set**: `utf8mb4`
+- **Collation**: `utf8mb4_general_ci`
+
+### Quick Database Setup
+
+#### Option 1: Import SQL Dump (Recommended)
+```bash
+# Create database
+mysql -u root -p -e "CREATE DATABASE yedire_frewoch CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;"
+
+# Import the complete database structure and data
+mysql -u root -p yedire_frewoch < yedire_frewoch.sql
+```
+
+#### Option 2: Manual Setup
+```sql
+-- Create database
+CREATE DATABASE yedire_frewoch CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+USE yedire_frewoch;
+
+-- Import the provided SQL file
+SOURCE yedire_frewoch.sql;
+```
+
+### Database Schema Overview
 
 The application uses MySQL with the following main entities:
 
-- **Schools** - Educational institutions and their details
-- **Volunteers** - Individual volunteer information
-- **Sponsors** - Partner organizations and companies
-- **Communities** - Community programs and locations
-- **Testimonials** - Success stories and feedback
-- **Images** - Gallery and school images
-- **Admins** - System administrators
-- **Urgent Messages** - Alert system
+#### Core Tables
+- **`admins`** - System administrators with role-based access
+- **`schools`** - Educational institutions and their details
+- **`school_images`** - Image galleries for each school
+- **`volunteers`** - Individual volunteer information
+- **`sponsors`** - Partner organizations and companies
+- **`communities`** - Community programs and locations
+- **`testimonials`** - Success stories and feedback
+- **`urgent_messages`** - Alert system for urgent communications
+
+#### Supporting Tables
+- **`bank_info`** - Banking information for donations
+- **`social_links`** - Social media platform links
+- **`footer_links`** - Navigation links for website footer
+- **`donations`** - Donation tracking (structure ready)
+- **`test_crud`** - Testing table for CRUD operations
+
+### Database Configuration
+
+#### Environment Variables
+Update your `.env` file with the correct database credentials:
+
+```env
+# Database Configuration
+DB_HOST=localhost
+DB_USER=your_mysql_username
+DB_PASSWORD=your_mysql_password
+DB_NAME=yedire_frewoch
+DB_PORT=3306
+```
+
+#### Default Admin Account
+The database comes with a default admin account:
+- **Username**: `admin`
+- **Email**: `admin@gmail.com`
+- **Password**: Use the setup script to create a secure password
+
+### Database Features
+
+#### Data Integrity
+- **Foreign Key Constraints** - Ensures data consistency
+- **Unique Constraints** - Prevents duplicate entries
+- **Auto-increment IDs** - Automatic primary key generation
+- **Cascade Deletes** - Maintains referential integrity
+
+#### Sample Data
+The database includes:
+- **18 Schools** across Dire Dawa region
+- **4 Communities** (Somali, Oromo, Amhara, Harari)
+- **4 Volunteers** including MM Hotel and Watch & Pray
+- **2 Sponsors** with logos and website links
+- **3 Testimonials** from beneficiaries
+- **4 Social Media Links** (Facebook, Telegram, TikTok, YouTube)
+- **3 Bank Accounts** (eBirr, Berhan Bank, CBE)
+
+#### Image Management
+- **School Images** - Multiple images per school with metadata
+- **Bank Logos** - Visual representation of banking partners
+- **Testimonial Photos** - User profile images
+- **Urgent Message Images** - Visual alerts and announcements
+
+### Database Maintenance
+
+#### Backup
+```bash
+# Create database backup
+mysqldump -u root -p yedire_frewoch > yedire_frewoch_backup_$(date +%Y%m%d).sql
+```
+
+#### Restore
+```bash
+# Restore from backup
+mysql -u root -p yedire_frewoch < yedire_frewoch_backup_20250106.sql
+```
+
+#### Performance Optimization
+- **Indexes** - Optimized for common queries
+- **Character Set** - UTF8MB4 for full Unicode support
+- **Engine** - InnoDB for ACID compliance and foreign keys
 
 ---
 

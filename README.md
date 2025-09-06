@@ -309,7 +309,7 @@ This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) 
 
 ### Get in Touch
 - **Website**: [www.yedirefirewoch.org](https://www.yedirefirewoch.org)
-- **Email**: info@yedirefirewoch.org
+- **Email**: yedirefrewoch@gmail.com
 - **Phone**: +251-925-254-765
 - **Address**: Dire Dawa, Ethiopia
 

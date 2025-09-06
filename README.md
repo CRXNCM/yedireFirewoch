@@ -324,7 +324,7 @@ This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) 
 <div align="center">
 
 **Made with ❤️ for the children and communities of Ethiopia**
-**Devloped by DDAC - DDU SOFTWARE ENINGEERING INTERN TEAM**
+- **Devloped by DDAC - DDU SOFTWARE ENINGEERING INTERN TEAM**
 *YeDire Firewoch - One for Another*
 
 </div>

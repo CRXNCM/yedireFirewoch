@@ -124,6 +124,14 @@ yedireFirewoch/
 
 ---
 
+## 🔐 Admin Access
+
+**Important Security Notice**: These are development credentials. **Change these immediately** in production and never commit real credentials to version control.
+
+### Default Admin Credentials
+- **Email**: yoni@gmail.com
+- **Password**: admin123
+
 ## 🚀 Getting Started
 
 ### Prerequisites

@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 06, 2025 at 11:46 AM
+-- Generation Time: Dec 18, 2025 at 08:55 AM
 -- Server version: 10.4.32-MariaDB
--- PHP Version: 8.2.12
+-- PHP Version: 8.3.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -20,26 +20,6 @@ SET time_zone = "+00:00";
 --
 -- Database: `yedire_frewoch`
 --
-
--- --------------------------------------------------------
-
---
--- Table structure for table `admin`
---
-
-CREATE TABLE `admin` (
-  `id` int(11) NOT NULL,
-  `username` varchar(50) NOT NULL,
-  `password` varchar(255) NOT NULL,
-  `created_at` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `admin`
---
-
-INSERT INTO `admin` (`id`, `username`, `password`, `created_at`) VALUES
-(1, 'yoni', '$2a$12$9NL.X6dq9zEdI4.MWeOVFu9.dtw0mustXOBJUvA8xh29dnrg/YSom', '2025-08-24 17:26:03');
 
 -- --------------------------------------------------------
 
@@ -64,7 +44,7 @@ CREATE TABLE `admins` (
 --
 
 INSERT INTO `admins` (`id`, `username`, `email`, `password`, `role`, `is_active`, `last_login`, `created_at`, `updated_at`) VALUES
-(1, 'admin', 'admin@gmail.com', '$2a$10$CSrfgmgvuwkFvJ6TmVsGNOopKaNwwXz3vmx1yboUMNL9/gQSaHhRC', 'admin', 1, '2025-09-06 08:19:00', '2025-09-05 06:47:22', '2025-09-06 08:19:00');
+(2, 'yoni', 'yoni@gmail.com', '$2a$10$xzQGcoS7UNRIRElkFbuyru81/Pih1n98uxvNBMOGsxa07GfaR6l3O', 'admin', 1, '2025-12-18 06:24:01', '2025-11-11 14:01:54', '2025-12-18 06:24:01');
 
 -- --------------------------------------------------------
 
@@ -210,7 +190,7 @@ INSERT INTO `schools` (`school_id`, `name`, `description`, `region`, `children_s
 ('oxaday_school', 'oxaday school', '', 'dire dawa', 100, '2025-04-11 17:50:26'),
 ('sabiyab_no_3', 'sabiyab no 3', '', 'dire dawa', 100, '2025-04-11 18:28:03'),
 ('sabiyan_no_1', 'sabiyan no 1', 'small villaeg school', 'dire dawa', 100, '2025-03-29 09:04:34'),
-('SCH1756113718805', 'kezira', 'new school', 'dire dawa', 97, '2025-08-25 09:21:58'),
+('SCH1759222834620', 'Dechatu hedase', 'new school', 'konel', 100, '2025-09-30 09:00:34'),
 ('ye_hetsanat_ken', 'ye hetsanat ken', '', 'dire dawa', 100, '2025-04-11 17:51:48');
 
 -- --------------------------------------------------------
@@ -239,7 +219,6 @@ INSERT INTO `school_images` (`id`, `school_id`, `title`, `description`, `is_feat
 (4, 'dechatu_hedase', 'morning meal', 'dsdnmdn', 0, '2025-03-28 22:10:22', '', NULL),
 (5, 'dechatu_hedase', 'morning meal', 'dsdnmdn', 0, '2025-03-28 22:10:22', '', NULL),
 (6, 'dechatu_hedase', 'morning meal', 'dsdnmdn', 0, '2025-03-28 22:10:22', '', NULL),
-(7, 'dechatu_hedase', 'morning meal', 'dsdnmdn', 0, '2025-03-28 22:10:22', '', NULL),
 (8, 'dechatu_hedase', 'morning meal', 'dsdnmdn', 0, '2025-03-28 22:10:22', '', NULL),
 (9, 'dechatu_hedase', 'morning meal', 'dsdnmdn', 0, '2025-03-28 22:10:22', '', NULL),
 (10, 'dechatu_hedase', 'morning meal', 'dsdnmdn', 0, '2025-03-28 22:10:22', '', NULL),
@@ -255,7 +234,40 @@ INSERT INTO `school_images` (`id`, `school_id`, `title`, `description`, `is_feat
 (23, 'goro', 'meal', 'good food', 0, '2025-09-05 09:33:03', '/uploads/schools\\school-1757064783275-414d1465.jpg', 'schools\\school-1757064783275-414d1465.jpg'),
 (24, 'goro', 'meal', 'good food', 0, '2025-09-05 09:33:03', '/uploads/schools\\school-1757064783348-443d6a9a.jpg', 'schools\\school-1757064783348-443d6a9a.jpg'),
 (25, 'goro', 'meal', 'good food', 0, '2025-09-05 09:33:03', '/uploads/schools\\school-1757064783445-8b8f031e.jpg', 'schools\\school-1757064783445-8b8f031e.jpg'),
-(26, 'goro', 'meal', 'good food', 0, '2025-09-05 09:33:03', '/uploads/schools\\school-1757064783517-e26a545f.jpg', 'schools\\school-1757064783517-e26a545f.jpg');
+(26, 'goro', 'meal', 'good food', 0, '2025-09-05 09:33:03', '/uploads/schools\\school-1757064783517-e26a545f.jpg', 'schools\\school-1757064783517-e26a545f.jpg'),
+(27, 'Aba_Yohanes', 'meal', 'good', 1, '2025-09-22 06:59:29', '/uploads/schools\\school-1758524369898-cd572e8f.jpg', 'schools\\school-1758524369898-cd572e8f.jpg'),
+(30, 'Gende_Ada', 'breakfast', 'everyday', 0, '2025-10-10 23:40:58', '/uploads/schools\\school-1760139657635-7075fea4.jpg', 'schools\\school-1760139657635-7075fea4.jpg'),
+(31, 'Gende_Ada', 'breakfast', 'everyday', 0, '2025-10-10 23:40:58', '/uploads/schools\\school-1760139657783-1bdf79bc.jpg', 'schools\\school-1760139657783-1bdf79bc.jpg'),
+(32, 'Gende_Ada', 'breakfast', 'everyday', 0, '2025-10-10 23:40:58', '/uploads/schools\\school-1760139657921-8ae21554.jpg', 'schools\\school-1760139657921-8ae21554.jpg'),
+(33, 'Gende_Ada', 'breakfast', 'everyday', 0, '2025-10-10 23:40:58', '/uploads/schools\\school-1760139658059-263248ae.jpg', 'schools\\school-1760139658059-263248ae.jpg'),
+(34, 'Gende_Ada', 'breakfast', 'everyday', 0, '2025-10-10 23:40:58', '/uploads/schools\\school-1760139658190-5c8d1038.jpg', 'schools\\school-1760139658190-5c8d1038.jpg'),
+(35, 'Gende_Ada', 'breakfast', 'everyday', 0, '2025-10-10 23:40:58', '/uploads/schools\\school-1760139658330-4b78c0cb.jpg', 'schools\\school-1760139658330-4b78c0cb.jpg'),
+(36, 'Gende_Ada', 'breakfast', 'everyday', 0, '2025-10-10 23:40:58', '/uploads/schools\\school-1760139658467-86279da2.jpg', 'schools\\school-1760139658467-86279da2.jpg'),
+(37, 'Gende_Ada', 'breakfast', 'everyday', 0, '2025-10-10 23:40:58', '/uploads/schools\\school-1760139658571-b753d832.jpg', 'schools\\school-1760139658571-b753d832.jpg'),
+(38, 'Gende_Ada', 'breakfast', 'everyday', 0, '2025-10-10 23:40:58', '/uploads/schools\\school-1760139658694-9f3800c8.jpg', 'schools\\school-1760139658694-9f3800c8.jpg'),
+(39, 'Gende_Ada', 'breakfast', 'everyday', 0, '2025-10-10 23:40:58', '/uploads/schools\\school-1760139658832-7c1d4058.jpg', 'schools\\school-1760139658832-7c1d4058.jpg'),
+(40, 'SCH1759222834620', 'breakfast', 'for every student', 0, '2025-10-10 23:43:14', '/uploads/schools\\school-1760139793000-94819d30.jpg', 'schools\\school-1760139793000-94819d30.jpg'),
+(41, 'SCH1759222834620', 'breakfast', 'for every student', 0, '2025-10-10 23:43:14', '/uploads/schools\\school-1760139793117-1c448e09.jpg', 'schools\\school-1760139793117-1c448e09.jpg'),
+(42, 'SCH1759222834620', 'breakfast', 'for every student', 0, '2025-10-10 23:43:14', '/uploads/schools\\school-1760139793241-4e048e06.jpg', 'schools\\school-1760139793241-4e048e06.jpg'),
+(43, 'SCH1759222834620', 'breakfast', 'for every student', 0, '2025-10-10 23:43:14', '/uploads/schools\\school-1760139793395-fc0e2b15.jpg', 'schools\\school-1760139793395-fc0e2b15.jpg'),
+(44, 'SCH1759222834620', 'breakfast', 'for every student', 0, '2025-10-10 23:43:14', '/uploads/schools\\school-1760139793542-309eef30.jpg', 'schools\\school-1760139793542-309eef30.jpg'),
+(45, 'SCH1759222834620', 'breakfast', 'for every student', 0, '2025-10-10 23:43:14', '/uploads/schools\\school-1760139793682-0bcaeadb.jpg', 'schools\\school-1760139793682-0bcaeadb.jpg'),
+(46, 'SCH1759222834620', 'breakfast', 'for every student', 0, '2025-10-10 23:43:14', '/uploads/schools\\school-1760139793830-3e50c022.jpg', 'schools\\school-1760139793830-3e50c022.jpg'),
+(47, 'SCH1759222834620', 'breakfast', 'for every student', 0, '2025-10-10 23:43:14', '/uploads/schools\\school-1760139793967-36e3236f.jpg', 'schools\\school-1760139793967-36e3236f.jpg'),
+(48, 'SCH1759222834620', 'breakfast', 'for every student', 0, '2025-10-10 23:43:14', '/uploads/schools\\school-1760139794112-6801fa10.jpg', 'schools\\school-1760139794112-6801fa10.jpg'),
+(49, 'SCH1759222834620', 'breakfast', 'for every student', 0, '2025-10-10 23:43:14', '/uploads/schools\\school-1760139794245-ceee40d1.jpg', 'schools\\school-1760139794245-ceee40d1.jpg'),
+(50, 'SCH1759222834620', 'breakfast', 'for every student', 0, '2025-10-10 23:43:14', '/uploads/schools\\school-1760139794408-ac01719d.jpg', 'schools\\school-1760139794408-ac01719d.jpg'),
+(51, 'mariyam_sefer', 'breakfast', 'good for every student', 0, '2025-10-10 23:56:06', '/uploads/schools\\school-1760140565200-4f9762fb.jpg', 'schools\\school-1760140565200-4f9762fb.jpg'),
+(52, 'mariyam_sefer', 'breakfast', 'good for every student', 0, '2025-10-10 23:56:06', '/uploads/schools\\school-1760140565300-5d24d22d.jpg', 'schools\\school-1760140565300-5d24d22d.jpg'),
+(53, 'mariyam_sefer', 'breakfast', 'good for every student', 0, '2025-10-10 23:56:06', '/uploads/schools\\school-1760140565387-1e6e1145.jpg', 'schools\\school-1760140565387-1e6e1145.jpg'),
+(54, 'mariyam_sefer', 'breakfast', 'good for every student', 0, '2025-10-10 23:56:06', '/uploads/schools\\school-1760140565465-63d4a8a9.jpg', 'schools\\school-1760140565465-63d4a8a9.jpg'),
+(55, 'mariyam_sefer', 'breakfast', 'good for every student', 0, '2025-10-10 23:56:06', '/uploads/schools\\school-1760140565549-2bc6ed20.jpg', 'schools\\school-1760140565549-2bc6ed20.jpg'),
+(56, 'mariyam_sefer', 'breakfast', 'good for every student', 0, '2025-10-10 23:56:06', '/uploads/schools\\school-1760140565626-a21b9142.jpg', 'schools\\school-1760140565626-a21b9142.jpg'),
+(57, 'mariyam_sefer', 'breakfast', 'good for every student', 0, '2025-10-10 23:56:06', '/uploads/schools\\school-1760140565713-5a74f167.jpg', 'schools\\school-1760140565713-5a74f167.jpg'),
+(58, 'mariyam_sefer', 'breakfast', 'good for every student', 0, '2025-10-10 23:56:06', '/uploads/schools\\school-1760140565814-6d4c21f8.jpg', 'schools\\school-1760140565814-6d4c21f8.jpg'),
+(59, 'mariyam_sefer', 'breakfast', 'good for every student', 0, '2025-10-10 23:56:06', '/uploads/schools\\school-1760140565928-aeb94154.jpg', 'schools\\school-1760140565928-aeb94154.jpg'),
+(60, 'mariyam_sefer', 'breakfast', 'good for every student', 0, '2025-10-10 23:56:06', '/uploads/schools\\school-1760140566031-48736f7b.jpg', 'schools\\school-1760140566031-48736f7b.jpg'),
+(61, 'mariyam_sefer', 'breakfast', 'good for every student', 0, '2025-10-10 23:56:06', '/uploads/schools\\school-1760140566126-05cbff6c.jpg', 'schools\\school-1760140566126-05cbff6c.jpg');
 
 -- --------------------------------------------------------
 
@@ -372,9 +384,10 @@ CREATE TABLE `urgent_messages` (
 --
 
 INSERT INTO `urgent_messages` (`id`, `title`, `message`, `image_path`, `urgency_level`, `status`, `action_link`, `action_text`, `created_at`, `updated_at`) VALUES
-(1, 'we need help', 'please', 'images/urgent/1743209230_bg-bunner-2.png', 'Urgent', 'inactive', 'https://www.instagram.com/yon_ii_/', 'Help Now', '2025-03-29 00:47:10', '2025-03-29 00:47:10'),
-(2, 'need', 'we need help on supplies', 'images/urgent/1743239568_img_67e719331e26c.png', 'Urgent', 'inactive', '', 'Help Now', '2025-03-29 09:12:48', '2025-03-29 09:12:48'),
-(3, 'support', 'we need support with food materials', 'images/urgent/1743668802_39c3efa54815b4fb1eef66d7ec8309c7.jpg', 'Urgent', 'inactive', '', 'Help Now', '2025-04-03 08:26:42', '2025-04-03 08:27:19');
+(1, 'we need help', 'please', 'images/urgent/1743209230_bg-bunner-2.png', 'Urgent', 'inactive', 'https://www.instagram.com/yon_ii_/', 'Help Now', '2025-03-29 00:47:10', '2025-10-09 22:22:37'),
+(2, 'need', 'we need help on supplies', 'images/urgent/1743239568_img_67e719331e26c.png', 'Urgent', 'inactive', '', 'Help Now', '2025-03-29 09:12:48', '2025-10-09 22:22:37'),
+(3, 'support', 'we need support with food materials', 'images/urgent/1743668802_39c3efa54815b4fb1eef66d7ec8309c7.jpg', 'Urgent', 'inactive', '', 'Help Now', '2025-04-03 08:26:42', '2025-10-09 22:22:37'),
+(4, 'help', 'needed', NULL, 'Urgent', 'inactive', 'https://chatgpt.com/?model=auto', 'Help Now', '2025-10-09 22:22:37', '2025-10-09 22:22:37');
 
 -- --------------------------------------------------------
 
@@ -403,13 +416,6 @@ INSERT INTO `volunteers` (`id`, `name`, `email`, `phone`, `join_date`) VALUES
 --
 -- Indexes for dumped tables
 --
-
---
--- Indexes for table `admin`
---
-ALTER TABLE `admin`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `username` (`username`);
 
 --
 -- Indexes for table `admins`
@@ -541,16 +547,10 @@ ALTER TABLE `urgent_messages`
 --
 
 --
--- AUTO_INCREMENT for table `admin`
---
-ALTER TABLE `admin`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
 -- AUTO_INCREMENT for table `admins`
 --
 ALTER TABLE `admins`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `bank_info`
@@ -574,7 +574,7 @@ ALTER TABLE `footer_links`
 -- AUTO_INCREMENT for table `school_images`
 --
 ALTER TABLE `school_images`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=62;
 
 --
 -- AUTO_INCREMENT for table `social_links`
@@ -598,7 +598,7 @@ ALTER TABLE `test_crud`
 -- AUTO_INCREMENT for table `urgent_messages`
 --
 ALTER TABLE `urgent_messages`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Constraints for dumped tables

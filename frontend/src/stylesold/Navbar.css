@@ -1,0 +1,290 @@
+.navbar {
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 5px 0; /* Reduced from 15px */
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Remove this comment line */
+.navbar-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+/* Add the active link styling */
+.active-link {
+  color: var(--primary-color) !important;
+  font-weight: 800 !important;
+}
+
+.navbar-logo {
+  flex: 0 0 auto;
+}
+
+.navbar-links {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.navbar-links ul {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  justify-content: center;
+}
+
+.navbar-links li {
+  margin: 0 15px;
+}
+
+.navbar-actions {
+  flex: 0 0 auto;
+}
+
+/* Mobile menu styles */
+@media (max-width: 768px) {
+  .navbar-content {
+    position: relative;
+  }
+  
+  .navbar-links {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: #fff;
+    display: none;
+    flex-direction: column;
+    padding: 20px 0;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  }
+  
+  .navbar-links.active {
+    display: flex;
+  }
+  
+  .navbar-links ul {
+    flex-direction: column;
+  }
+  
+  .navbar-links li {
+    margin: 10px 0;
+    text-align: center;
+  }
+  
+  .menu-toggle {
+    display: block;
+  }
+}
+
+.navbar-logo a {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.logo {
+  height: 20px;
+  margin-right: 10px;
+}
+
+.brand-name {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #333;
+}
+
+.navbar-links ul {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar-links li {
+  margin: 0 15px;
+}
+
+.navbar-links a {
+  color: #333;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: color 0.3s ease;
+}
+
+.navbar-links a:hover {
+  color: var(--primary-color);
+}
+
+.donate-btn {
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  padding: 8px 20px;
+  border-radius: 5px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.donate-btn:hover {
+  background-color: var(--primary-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.menu-toggle {
+  display: none;
+  cursor: pointer;
+}
+
+.hamburger {
+  width: 30px;
+  height: 20px;
+  position: relative;
+}
+
+.hamburger span {
+  display: block;
+  position: absolute;
+  height: 3px;
+  width: 100%;
+  background: #333;
+  border-radius: 3px;
+  opacity: 1;
+  left: 0;
+  transform: rotate(0deg);
+  transition: .25s ease-in-out;
+}
+
+.hamburger span:nth-child(1) {
+  top: 0px;
+}
+
+.hamburger span:nth-child(2) {
+  top: 8px;
+}
+
+.hamburger span:nth-child(3) {
+  top: 16px;
+}
+
+.hamburger.active span:nth-child(1) {
+  top: 8px;
+  transform: rotate(135deg);
+}
+
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+  left: -60px;
+}
+
+.hamburger.active span:nth-child(3) {
+  top: 8px;
+  transform: rotate(-135deg);
+}
+
+@media (max-width: 991px) {
+  .navbar-links {
+    position: fixed;
+    top: 70px;
+    left: -100%;
+    width: 100%;
+    height: calc(100vh - 70px);
+    background-color: white;
+    flex-direction: column;
+    transition: 0.3s;
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+    overflow-y: auto;
+    padding: 20px 0;
+  }
+  
+  .navbar-links.active {
+    left: 0;
+  }
+  
+  .navbar-links ul {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .navbar-links li {
+    margin: 15px 0;
+  }
+  
+  .menu-toggle {
+    display: block;
+  }
+}
+
+/* Update the logo size */
+.navbar-logo .logo {
+  height: 100px; /* Reduced from 100px */
+  width: auto;
+  margin-right: 10px;
+}
+
+.brand-name {
+  font-size: 1.5rem; /* Reduced from 1.8rem */
+  font-weight: 700;
+  color: #333;
+}
+
+/* You may need to adjust these styles to maintain proper alignment */
+.navbar-logo {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-logo a {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+/* Add these styles to your existing Navbar.css */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.navbar.transparent {
+  background-color: transparent;
+  box-shadow: none;
+}
+
+.navbar.scrolled {
+  background-color: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* You might want to adjust text colors for better visibility */
+.navbar.transparent .navbar-links ul li a {
+  color: white;
+}
+
+.navbar.transparent .brand-name {
+  color: white;
+}
+
+/* Ensure the donate button remains visible */
+.navbar.transparent .donate-btn {
+  background-color: #4CAF50;
+  color: white;
+}
+
+/* Adjust hamburger menu color for transparent navbar */
+.navbar.transparent .hamburger span {
+  background-color: white;
+}

@@ -12,6 +12,7 @@ import wapLogo from '../assets/images/wap.jpg'; // Import Watch and Pray logo
 const HomePage = () => {
   const [stats, setStats] = useState({
     students: 0,
+
     schools: 0,
     volunteers: 0,
     communities: 0
@@ -115,6 +116,33 @@ const HomePage = () => {
     }
   };
 
+  // Fetch volunteers count using the native fetch API to avoid axios interceptors
+  // (axios instance redirects to /login on 401 via interceptor which is undesired for public homepage)
+  const fetchVolunteersCount = async () => {
+    try {
+      const apiBase = (import.meta.env.VITE_API_BASE_URL || 'http://localhost:5000/api').replace(/\/api$/, '');
+      const url = `${apiBase}/volunteers`;
+      const headers = { 'Content-Type': 'application/json' };
+      const token = localStorage.getItem('authToken');
+      if (token) headers.Authorization = `Bearer ${token}`;
+      const res = await fetch(url, { method: 'GET', headers });
+      if (res.status === 401) {
+        // backend requires auth for full volunteers list; return 0 for public users
+        return 0;
+      }
+      if (!res.ok) return 0;
+      const data = await res.json();
+      // Try common shapes: { count }, { volunteers: [...] }, or an array
+      if (typeof data.count === 'number') return Number(data.count);
+      if (Array.isArray(data.volunteers)) return data.volunteers.length;
+      if (Array.isArray(data)) return data.length;
+      return 0;
+    } catch (err) {
+      console.error('Error fetching volunteers (public):', err);
+      return 0;
+    }
+  };
+
   // Fetch testimonials from the database
   const fetchTestimonials = async () => {
     try {
@@ -156,8 +184,8 @@ const HomePage = () => {
       const communitiesResp = await apiService.communities.getAll();
       const communitiesCount = Number(communitiesResp?.count || 0);
 
-      // Volunteers: endpoint is admin-protected; avoid calling from public homepage
-      const volunteersCount = 0;
+  // Volunteers: try a public-safe fetch that won't trigger axios 401 redirect
+  const volunteersCount = await fetchVolunteersCount();
 
       setStats((prev) => ({
         ...prev,
@@ -246,10 +274,8 @@ const HomePage = () => {
   return (
     <div className="home-page">
       {/* Hero Section */}
-      <section className="hero-section">
-        <div className="hero-image" style={{ backgroundImage: `url(${heroImage})` }}>
-          <div className="overlay"></div>
-        </div>
+      <section className="hero-section" style={{ backgroundImage: `url(${heroImage})` }}>
+        <div className="overlay"></div>
         <div className="hero-content">
           <h1>One for another!</h1>
           <h2 className="amharic-text">አንዳችን ለአንዳችን!</h2>

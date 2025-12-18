@@ -4,7 +4,7 @@ import { useAuth } from '../context/AuthContext';
 import '../styles/Login.css';
 
 const Login = () => {
-  const [username, setUsername] = useState('');
+  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
@@ -19,7 +19,7 @@ const Login = () => {
     setSuccess('');
 
     try {
-      const result = await signIn({ username, password });
+      const result = await signIn({ email, password });
       
       if (result.success) {
         setSuccess('Login successful! Redirecting...');
@@ -38,7 +38,7 @@ const Login = () => {
   };
 
   const handleTestLogin = async () => {
-    setUsername('admin');
+    setEmail('admin@example.com');
     setPassword('admin123');
     setError('');
     setSuccess('');
@@ -71,17 +71,17 @@ const Login = () => {
 
         <form onSubmit={handleSubmit} className="login-form">
           <div className="form-group">
-            <label htmlFor="username">Username</label>
+            <label htmlFor="email">Email</label>
             <input
-              type="text"
-              id="username"
-              name="username"
-              value={username}
-              onChange={(e) => setUsername(e.target.value)}
-              placeholder="Enter username"
+              type="email"
+              id="email"
+              name="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              placeholder="Enter your email"
               required
               disabled={loading}
-              autoComplete="username"
+              autoComplete="email"
             />
           </div>
 
@@ -110,25 +110,6 @@ const Login = () => {
             </button>
           </div>
         </form>
-
-        <div className="login-help">
-          <h3>Need Help?</h3>
-          <div className="help-options">
-            <button 
-              onClick={handleTestLogin}
-              className="test-login-btn"
-              disabled={loading}
-            >
-              Test with Default Credentials
-            </button>
-            
-            <div className="credentials-info">
-              <p><strong>Default Test Credentials:</strong></p>
-              <p>Username: <code>admin</code></p>
-              <p>Password: <code>admin123</code></p>
-            </div>
-          </div>
-        </div>
 
         <div className="login-footer">
           <p>YeDire Firewoch Charity Organization - Admin Panel</p>

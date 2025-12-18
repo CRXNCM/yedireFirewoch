@@ -99,14 +99,7 @@ ${bank.bank_address ? `Bank Address: ${bank.bank_address}` : ''}
     <div className="donate-page">
       {/* Hero Section */}
       <section className="hero-section">
-        <div className="hero-content">
-          <h1>Make a Difference Today</h1>
-          <p>Your donation helps us provide education, healthcare, and hope to children in need around the world.</p>
-          <div className="hero-buttons">
-            <Link to="/about" className="btn btn-primary">Learn More</Link>
-            <a href="#donation-section" className="btn btn-secondary">Donate Now</a>
-          </div>
-        </div>
+        
         <div className="hero-image">
           <img src={heroImage} alt="Children in need" />
         </div>
@@ -115,12 +108,9 @@ ${bank.bank_address ? `Bank Address: ${bank.bank_address}` : ''}
       {/* Donation Content */}
       <section className="donation-section" id="donation-section">
         <div className="container">
-          <h2 className="section-title">Make a Donation</h2>
-          <p className="section-description">
-            Your contribution helps us continue our mission to help children in need around the world.
-          </p>
 
           <div className="bank-section-header">
+            
             <h3 className="bank-section-title">Our Bank Accounts</h3>
             <p className="bank-section-subtitle">
               Choose from our verified bank accounts to make your donation
@@ -221,6 +211,14 @@ ${bank.bank_address ? `Bank Address: ${bank.bank_address}` : ''}
       {/* Additional Information */}
       <section className="info-section">
         <div className="container">
+          <div className="hero-content">
+          <h1>Make a Difference Today</h1>
+          <p>Your donation helps us provide education, healthcare, and hope to children in need around the world.</p>
+          <div className="hero-buttons">
+            <Link to="/about" className="btn btn-primary">Learn More</Link>
+            <a href="#donation-section" className="btn btn-secondary">Donate Now</a>
+          </div>
+        </div>
           <h3>How Your Donation Helps</h3>
           <div className="info-grid">
             <div className="info-item">

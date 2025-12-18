@@ -1,7 +1,6 @@
 // Update the imports to include the new image
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { supabase } from '../utils/supabaseClient';
 import '../styles/AchievementsPage.css';
 import { FaTrophy, FaMedal, FaAward, FaHandshake, FaCertificate, FaRegStar, FaHeart } from 'react-icons/fa';
 import heroBackground from '../assets/images/achievements-hero.png'; 

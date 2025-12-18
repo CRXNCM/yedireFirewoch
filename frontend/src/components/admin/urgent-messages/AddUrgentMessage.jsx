@@ -1,6 +1,5 @@
 import React, { useState, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { supabase } from '../../../utils/supabaseClient';
 import './UrgentMessageForm.css';
 
 const AddUrgentMessage = () => {

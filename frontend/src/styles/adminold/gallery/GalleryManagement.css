@@ -1,0 +1,334 @@
+.admin-layout {
+  display: flex;
+  min-height: 100vh;
+  width: 100%;
+}
+
+.gallery-management {
+  flex: 1;
+  padding: 1.5rem;
+  background: #f8f9fa;
+  min-height: 100vh;
+  overflow-y: auto;
+  width: calc(100% - 250px); /* Adjust based on your sidebar width */
+}
+
+.gallery-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.header-actions {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.search-bar {
+  position: relative;
+  width: 300px;
+}
+
+.search-icon {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #666;
+}
+
+.search-input {
+  width: 100%;
+  padding: 10px 10px 10px 40px;
+  border: 1px solid #ddd;
+  border-radius: 25px;
+  font-size: 14px;
+}
+
+.add-image-btn {
+  background: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 25px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.filter-pills {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+  padding: 0.5rem 0;
+}
+
+.filter-pills button {
+  padding: 8px 16px;
+  border: 1px solid #ddd;
+  border-radius: 20px;
+  background: white;
+  cursor: pointer;
+  transition: all 0.3s;
+  white-space: nowrap;
+}
+
+.filter-pills button:hover {
+  background: #f0f0f0;
+}
+
+.filter-pills button.active {
+  background: #007bff;
+  color: white;
+  border-color: #007bff;
+}
+
+/* Add responsive styles */
+@media (max-width: 768px) {
+  .gallery-management {
+    width: 100%;
+    padding: 1rem;
+  }
+  
+  .admin-layout {
+    flex-direction: column;
+  }
+}
+
+.lookbook-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* Changed from 3 to 4 columns */
+  gap: 15px; /* Reduced gap */
+  margin-top: 1.5rem;
+}
+
+.lookbook-item {
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+  height: 200px; /* Fixed height for smaller images */
+}
+
+.lookbook-item.large {
+  grid-column: span 2;
+  grid-row: span 2;
+  height: 415px; /* Adjusted height for large images */
+}
+
+.image-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  padding-bottom: 0; /* Remove padding-bottom */
+}
+
+.lookbook-item.large .image-container {
+  padding-bottom: 0; /* Remove padding-bottom */
+}
+
+.image-container img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s;
+}
+
+.image-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: flex-end;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.lookbook-item:hover .image-overlay {
+  opacity: 1;
+}
+
+.lookbook-item:hover img {
+  transform: scale(1.05);
+}
+
+.overlay-content {
+  padding: 20px;
+  color: white;
+  width: 100%;
+}
+
+.overlay-content h3 {
+  margin: 0;
+  font-size: 1.2rem;
+  margin-bottom: 5px;
+}
+
+.overlay-content p {
+  margin: 0;
+  opacity: 0.8;
+  font-size: 0.9rem;
+}
+
+.action-buttons {
+  display: flex;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.action-btn {
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.action-btn:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.action-btn.delete:hover {
+  background: #dc3545;
+}
+
+@media (max-width: 1400px) {
+  .lookbook-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 1024px) {
+  .lookbook-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .gallery-management {
+    margin-left: 0; /* Remove margin on mobile */
+    padding: 0.5rem;
+  }
+  
+  .lookbook-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+  
+  .lookbook-item {
+    height: 150px;
+  }
+  
+  .lookbook-item.large {
+    height: 310px;
+  }
+}
+
+.modal-footer button {
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.modal-footer .cancel-btn {
+  background: #f8f9fa;
+  border: 1px solid #ddd;
+  color: #333;
+  margin-right: 10px;
+}
+
+.modal-footer .primary-btn {
+  background: #007bff;
+  border: none;
+  color: white;
+}
+
+.close-btn {
+  background: transparent;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: #666;
+}
+
+.view-modal {
+  max-width: 800px;
+}
+
+.view-modal .full-image {
+  width: 100%;
+  max-height: 70vh;
+  object-fit: contain;
+}
+
+.image-details {
+  padding: 20px;
+  background: #f8f9fa;
+  border-radius: 0 0 4px 4px;
+}
+
+.image-details p {
+  margin: 8px 0;
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+/* Add these custom styles to match your app's theme */
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+
+.form-group input[type="text"],
+.form-group textarea,
+.form-group select {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #e5e5e5;
+  border-radius: 0.25rem;
+  font-size: 1rem;
+}
+
+.btn-primary {
+  background-color: #1cc972;
+  color: white;
+  border-color: #1cc972;
+}
+
+.btn-primary:hover {
+  background-color: #16a15d;
+  border-color: #16a15d;
+}

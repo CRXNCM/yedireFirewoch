@@ -1,9 +1,10 @@
 import React from 'react';
-import { Navigate } from 'react-router-dom';
+import { Navigate, useLocation } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 
 const ProtectedRoute = ({ children }) => {
   const { user, loading, isAuthenticated } = useAuth();
+  const location = useLocation();
 
   // Show loading while checking authentication
   if (loading) {
@@ -15,12 +16,12 @@ const ProtectedRoute = ({ children }) => {
     );
   }
 
-  // Redirect to login if not authenticated
-  if (!isAuthenticated) {
-    return <Navigate to="/login" replace />;
+  // Only redirect to login if trying to access a protected route while not authenticated
+  if (!isAuthenticated && location.pathname.startsWith('/admin')) {
+    return <Navigate to="/login" state={{ from: location }} replace />;
   }
 
-  // User is authenticated, render the protected content
+  // User is either authenticated or not trying to access a protected route
   return children;
 };
 

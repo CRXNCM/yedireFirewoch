@@ -1,0 +1,404 @@
+.social-media-management {
+  padding: 20px;
+}
+
+.social-media-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.social-media-header h2 {
+  font-size: 24px;
+  color: #333;
+  display: flex;
+  align-items: center;
+}
+
+.social-media-header .icon {
+  margin-right: 10px;
+  font-size: 28px;
+}
+
+.add-link-btn {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 4px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  font-weight: 500;
+  transition: background-color 0.3s;
+}
+
+.add-link-btn svg {
+  margin-right: 8px;
+}
+
+.add-link-btn:hover {
+  background-color: #45a049;
+}
+
+/* Table Styles */
+.social-links-table {
+  width: 100%;
+  overflow-x: auto;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.social-links-table table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.social-links-table th,
+.social-links-table td {
+  padding: 12px 15px;
+  text-align: left;
+  border-bottom: 1px solid #eee;
+}
+
+.social-links-table th {
+  background-color: #f8f9fa;
+  font-weight: 600;
+  color: #333;
+}
+
+.social-links-table tr:last-child td {
+  border-bottom: none;
+}
+
+.social-links-table tr:hover {
+  background-color: #f9f9f9;
+}
+
+.social-links-table tr.inactive {
+  opacity: 0.7;
+}
+
+.icon-cell {
+  font-size: 20px;
+  color: #555;
+}
+
+.icon-class {
+  font-size: 14px;
+  color: #777;
+  font-family: monospace;
+}
+
+.link-url {
+  color: #2196F3;
+  text-decoration: none;
+  display: block;
+  max-width: 250px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.link-url:hover {
+  text-decoration: underline;
+}
+
+.status-badge {
+  display: inline-block;
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.status-badge.active {
+  background-color: #e3f2fd;
+  color: #1976d2;
+}
+
+.status-badge.inactive {
+  background-color: #f5f5f5;
+  color: #757575;
+}
+
+.action-buttons {
+  display: flex;
+  gap: 8px;
+}
+
+.edit-btn,
+.delete-btn {
+  display: flex;
+  align-items: center;
+  padding: 6px 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 13px;
+  transition: background-color 0.2s;
+}
+
+.edit-btn {
+  background-color: #f0f0f0;
+  color: #333;
+}
+
+.delete-btn {
+  background-color: #ffebee;
+  color: #d32f2f;
+}
+
+.edit-btn:hover {
+  background-color: #e0e0e0;
+}
+
+.delete-btn:hover {
+  background-color: #ffcdd2;
+}
+
+.edit-btn svg,
+.delete-btn svg {
+  margin-right: 5px;
+  font-size: 14px;
+}
+
+.no-links {
+  padding: 30px;
+  text-align: center;
+  color: #757575;
+}
+
+.loading {
+  padding: 30px;
+  text-align: center;
+  color: #757575;
+}
+
+/* Modal Styles */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal {
+  background-color: white;
+  border-radius: 8px;
+  width: 500px;
+  max-width: 90%;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  border-bottom: 1px solid #eee;
+}
+
+.modal-header h3 {
+  margin: 0;
+  font-size: 18px;
+  color: #333;
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: #757575;
+}
+
+.close-btn:hover {
+  color: #333;
+}
+
+.modal form {
+  padding: 20px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 500;
+  color: #555;
+}
+
+.form-group input[type="text"],
+.form-group input[type="url"],
+.form-group input[type="number"] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.icon-input-group {
+  margin-bottom: 15px;
+}
+
+.icon-input-container {
+  display: flex;
+  gap: 10px;
+}
+
+.icon-input-container input {
+  flex: 1;
+}
+
+.browse-icons-btn {
+  background-color: #f0f0f0;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 0 15px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.browse-icons-btn:hover {
+  background-color: #e0e0e0;
+}
+
+.icon-preview {
+  margin-top: 10px;
+  font-size: 24px;
+  color: #555;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.checkbox-group {
+  display: flex;
+  align-items: center;
+}
+
+.checkbox-group label {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  margin-bottom: 0;
+}
+
+.checkbox-group input[type="checkbox"] {
+  margin-right: 8px;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.cancel-btn,
+.save-btn {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.cancel-btn {
+  background-color: #f0f0f0;
+  color: #333;
+}
+
+.save-btn {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.cancel-btn:hover {
+  background-color: #e0e0e0;
+}
+
+.save-btn:hover {
+  background-color: #45a049;
+}
+
+@media (max-width: 768px) {
+  .social-media-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+  }
+  
+  .action-buttons {
+    flex-direction: column;
+    gap: 5px;
+  }
+  
+  .edit-btn, .delete-btn {
+    width: 100%;
+  }
+}
+
+
+/* Add these styles for the icon browser */
+.icon-browser-modal {
+  width: 600px;
+  max-width: 90%;
+}
+
+.icon-browser-content {
+  padding: 20px;
+}
+
+.icon-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px;
+}
+
+.icon-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 15px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.icon-item:hover {
+  background-color: #f0f0f0;
+}
+
+.icon-display {
+  font-size: 28px;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.icon-name {
+  font-size: 14px;
+  text-align: center;
+}
+
+/* Responsive adjustments for icon browser */
+@media (max-width: 576px) {
+  .icon-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

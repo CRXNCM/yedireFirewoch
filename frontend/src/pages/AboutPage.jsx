@@ -1,19 +1,20 @@
-import React, { useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { Link, useLocation, NavLink } from 'react-router-dom';
 import '../styles/AboutPage.css';
 import aboutHeroImage from '../assets/images/about-hero.png';
 import feedingProgramImage from '../assets/images/feeding-program.jpg';
+// icons removed for a cleaner Values section
 
 const AboutPage = () => {
   const location = useLocation();
-  const [activeSection, setActiveSection] = useState(() => {
-    if (location.pathname.includes('/history')) return 'history';
-    return 'about';
-  });
+  const [activeSection, setActiveSection] = useState('about');
 
-  const handleSectionChange = (section) => {
-    setActiveSection(section);
-  };
+  // Sync activeSection with URL so navigation (NavLink) controls which content shows
+  useEffect(() => {
+    if (location.pathname.includes('/history')) setActiveSection('history');
+    else if (location.pathname.includes('/values')) setActiveSection('values');
+    else setActiveSection('about');
+  }, [location.pathname]);
 
   return (
     <div className="about-page">
@@ -147,57 +148,49 @@ const AboutPage = () => {
                 <div className="content-card">
                   <h2>Our Core Values</h2>
                   <div className="accent-line"></div>
-                  
-                  <div className="core-values-container">
-                    <div className="row">
-                      <div className="col-md-6 col-lg-4 mb-4">
-                        <div className="value-card">
-                          <FaHandHoldingHeart className="value-icon" />
-                          <h3>Community And Local Resource Mobilization</h3>
-                          <p>The community has huge potential to deal with its problems by using its knowledge and resources if it is adequately informed and mobilized. Cognizant to this, during project fund mobilization, implementation, monitoring and evaluation, grass-root community members including CBOs (Eddirs, youth clubs, Association ) leaders, religious elders, business owners, community volunteers, influential people, and interested/willing community elders ('YeseferMekariShimagile' ) will be actively involved.</p>
-                        </div>
-                      </div>
 
-                      <div className="col-md-6 col-lg-4 mb-4">
-                        <div className="value-card">
-                          <FaStar className="value-icon" />
-                          <h3>Compassionate Service</h3>
-                          <p>"We see the child behind every hunger pang" Driven by deep empathy, we serve vulnerable children with dignity—whether providing school meals, educational support or healthcare. Our work in Dire Dawa's poorest kebeles stems from understanding poverty's vicious cycle (illiteracy → poor health → unemployment → poverty).</p>
-                        </div>
-                      </div>
+                  <div className="content-body">
+                    <section>
+                      <h3>Community & Local Resource Mobilization</h3>
+                      <p>
+                        We actively mobilize local resources and community members—including CBOs, volunteers, elders, and local businesses—to plan and sustain solutions that address the root causes of child hunger and school dropout.
+                      </p>
+                    </section>
 
-                      <div className="col-md-6 col-lg-4 mb-4">
-                        <div className="value-card">
-                          <FaUsers className="value-icon" />
-                          <h3>Community Ownership</h3>
-                          <p>"Local problems demand local solutions" We empower communities through active participation—training volunteers, forming school committees, and collaborating with elders ('Yesefer Mekari Shimagle'). Our Home-Grown School Feeding model engages parents, teachers, and businesses to sustain impact.</p>
-                        </div>
-                      </div>
+                    <section>
+                      <h3>Compassionate Service</h3>
+                      <p>
+                        Our programs are driven by empathy and dignity; we prioritize children's wellbeing through nutritious meals, educational support, and health-focused interventions.
+                      </p>
+                    </section>
 
-                      <div className="col-md-6 col-lg-4 mb-4">
-                        <div className="value-card">
-                          <FaCheckCircle className="value-icon" />
-                          <h3>Transparency & Accountability</h3>
-                          <p>"Every birr tells a story of trust" Multi-tiered oversight (school committees, government partners, audits) ensures resources reach beneficiaries. We publish impact metrics—like reducing dropout rates by 5-6%—to validate donor investments.</p>
-                        </div>
-                      </div>
+                    <section>
+                      <h3>Community Ownership</h3>
+                      <p>
+                        We empower local stakeholders—parents, teachers, and community leaders—to co-design and manage programs so benefits endure beyond our direct involvement.
+                      </p>
+                    </section>
 
-                      <div className="col-md-6 col-lg-4 mb-4">
-                        <div className="value-card">
-                          <MdEquality className="value-icon" />
-                          <h3>Gender Equity</h3>
-                          <p>"Educating a girl transforms generations" With 800+ girls in our programs, we combat systemic barriers—early marriage, household burdens, and period poverty—through targeted scholarships, hygiene kits, and community sensitization to shift norms.</p>
-                        </div>
-                      </div>
+                    <section>
+                      <h3>Transparency & Accountability</h3>
+                      <p>
+                        Financial and programmatic transparency are core: oversight, reporting, and community feedback ensure resources reach children and create measurable impact.
+                      </p>
+                    </section>
 
-                      <div className="col-md-6 col-lg-4 mb-4">
-                        <div className="value-card">
-                          <GiPlantRoots className="value-icon" />
-                          <h3>Sustainability</h3>
-                          <p>We build programs that create lasting impact beyond our direct involvement.</p>
-                        </div>
-                      </div>
-                    </div>
+                    <section>
+                      <h3>Gender Equity</h3>
+                      <p>
+                        We prioritize girls' education through targeted support, scholarships, and hygiene initiatives that remove barriers to attendance and learning.
+                      </p>
+                    </section>
+
+                    <section>
+                      <h3>Sustainability</h3>
+                      <p>
+                        We design interventions that build local capacity and foster long-term community-led solutions for food security and education.
+                      </p>
+                    </section>
                   </div>
                 </div>
               )}

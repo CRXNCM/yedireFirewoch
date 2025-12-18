@@ -1,62 +1,29 @@
-/* Donate Page Styles */
+/* Donate Page */
 :root {
-  --primary-color: #667eea;
-  --primary-dark: #5a6fd8;
-  --primary-light: #e8ecff;
-  --accent-color: #764ba2;
-  --success-color: #4CAF50;
-  --warning-color: #FF9800;
-  --text-on-primary: #ffffff;
-  --text-dark: #2c3e50;
-  --text-light: #6c757d;
-  --text-muted: #adb5bd;
-  --background-light: #f8f9fa;
-  --background-white: #ffffff;
-  --border-color: #e9ecef;
-  --border-light: #f1f3f4;
-  --shadow-light: 0 2px 8px rgba(0, 0, 0, 0.08);
-  --shadow-medium: 0 4px 16px rgba(0, 0, 0, 0.12);
-  --shadow-large: 0 8px 32px rgba(0, 0, 0, 0.16);
-  --border-radius: 16px;
-  --border-radius-small: 8px;
-  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --primary-color: #4CAF50;      /* Light green */
+  --primary-dark: #388E3C;       /* Darker green for hover states */
+  --primary-light: #C8E6C9;      /* Very light green for backgrounds */
+  --accent-color: #8BC34A;       /* Lighter green accent */
+  --text-on-primary: #ffffff;    /* White text on green backgrounds */
 }
-
-.donate-page {
-  min-height: 100vh;
-  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-}
-
-/* Hero Section */
-.hero-section {
-  background: linear-gradient(135deg, var(--primary-color) 0%, var(--accent-color) 100%);
-  color: var(--text-on-primary);
-  padding: 100px 0;
-  position: relative;
-  overflow: hidden;
-}
-
-.hero-section::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Ccircle cx='30' cy='30' r='4'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-  opacity: 0.3;
-}
-
-.hero-content {
-  position: relative;
-  z-index: 2;
-  text-align: center;
-  max-width: 800px;
+/* Container */
+.container {
+  max-width: 1200px;
   margin: 0 auto;
   padding: 0 20px;
 }
-
+.donate-page {
+  width: 100%;
+}
+/*.hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: left;
+  max-width: 760px;
+  margin: 0 20px;
+  padding: 0 10px;
+}
+*/
 .hero-content h1 {
   font-size: 3.5rem;
   font-weight: 700;
@@ -78,19 +45,88 @@
   justify-content: center;
   flex-wrap: wrap;
 }
+/* Donate Hero Section */
 
-.hero-image {
+/* Redesigned Donate Hero Section */
+.donate-hero {
+  min-height: 65vh;
+  background-image: linear-gradient(rgba(34, 49, 63, 0.55), rgba(76, 175, 80, 0.35)), url('../assets/images/donate-hero.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   position: relative;
-  z-index: 2;
+  color: var(--text-on-primary);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   text-align: center;
-  margin-top: 3rem;
+  padding: 64px 0 48px 0;
+  box-shadow: 0 6px 32px 0 rgba(60,60,60,0.10);
 }
 
-.hero-image img {
-  max-width: 100%;
-  height: auto;
-  border-radius: var(--border-radius);
-  box-shadow: var(--shadow-large);
+.donate-hero .overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg, rgba(34,49,63,0.55) 60%, rgba(76,175,80,0.25) 100%);
+  z-index: 1;
+}
+
+.donate-hero .hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.donate-hero h1 {
+  font-size: 4rem;
+  font-weight: 800;
+  margin-bottom: 1.5rem;
+  letter-spacing: -1px;
+  text-shadow: 0 4px 24px rgba(0,0,0,0.18);
+}
+
+.donate-hero p {
+  font-size: 1.35rem;
+  margin-bottom: 2.5rem;
+  opacity: 0.97;
+  line-height: 1.7;
+  max-width: 600px;
+}
+
+.donate-hero .hero-buttons {
+  display: flex;
+  gap: 1.25rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 1.5rem;
+}
+
+/* Breadcrumb Navigation */
+.breadcrumb-nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.1rem;
+  margin-bottom: 18px;
+  color: rgba(255,255,255,0.95);
+}
+
+.breadcrumb-nav a {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.breadcrumb-nav a:hover,
+.breadcrumb-nav .active {
+  color: var(--primary-light);
+  font-weight: 600;
 }
 
 /* Container */
@@ -190,18 +226,18 @@
 /* Bank Cards Grid */
 .bank-cards-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
-  gap: 3rem;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
   margin-top: 2rem;
-  justify-items: center;
+  align-items: start;
 }
 
 /* Bank Card Wrapper */
 .bank-card-wrapper {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: 1.5rem;
+  align-items: stretch;
+  gap: 1rem;
   width: 100%;
   max-width: 420px;
 }
@@ -209,8 +245,7 @@
 /* Credit Card Styling */
 .bank-credit-card {
   width: 100%;
-  max-width: 400px;
-  margin: 0 auto;
+  min-height: 160px; /* ensure card has a visible area */
 }
 
 /* Card Actions Overlay */
@@ -218,7 +253,7 @@
   display: flex;
   gap: 0.75rem;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: flex-start;
   width: 100%;
 }
 
@@ -226,7 +261,7 @@
 .bank-details {
   background: var(--background-white);
   border-radius: var(--border-radius);
-  padding: 1.5rem;
+  padding: 1rem;
   box-shadow: var(--shadow-light);
   border: 1px solid var(--border-color);
   width: 100%;
@@ -508,58 +543,39 @@
 }
 
 /* Responsive Design */
-@media (max-width: 768px) {
-  .hero-content h1 {
+@media (max-width: 900px) {
+  .donate-hero {
+    min-height: 48vh;
+    padding: 40px 0 32px 0;
+  }
+  .donate-hero h1 {
     font-size: 2.5rem;
   }
-  
-  .hero-content p {
-    font-size: 1.125rem;
+  .donate-hero p {
+    font-size: 1.05rem;
   }
-  
-  .hero-buttons {
+  .donate-hero .hero-content {
+    padding: 0 10px;
+  }
+}
+
+@media (max-width: 600px) {
+  .donate-hero {
+    min-height: 32vh;
+    padding: 24px 0 18px 0;
+  }
+  .donate-hero h1 {
+    font-size: 1.5rem;
+  }
+  .donate-hero p {
+    font-size: 0.95rem;
+  }
+  .donate-hero .hero-content {
+    padding: 0 4px;
+  }
+  .donate-hero .hero-buttons {
     flex-direction: column;
-    align-items: center;
-  }
-  
-  .bank-cards-grid {
-    grid-template-columns: 1fr;
-    gap: 2rem;
-  }
-  
-  .bank-card-wrapper {
-    max-width: 100%;
-  }
-  
-  .detail-item {
-    flex-direction: column;
-    gap: 0.5rem;
-    text-align: left;
-  }
-  
-  .detail-label {
-    min-width: auto;
-  }
-  
-  .detail-value {
-    text-align: left;
-  }
-  
-  .card-actions-overlay {
-    flex-direction: column;
-  }
-  
-  .action-btn {
-    min-width: auto;
-  }
-  
-  .info-grid {
-    grid-template-columns: 1fr;
-  }
-  
-  .contact-buttons {
-    flex-direction: column;
-    align-items: center;
+    gap: 0.75rem;
   }
 }
 

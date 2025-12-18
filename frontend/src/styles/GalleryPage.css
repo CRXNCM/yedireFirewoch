@@ -451,6 +451,18 @@
   flex: 1;
 }
 
+/* Specific override to avoid clashes with admin sidebar styles that use a global
+   `.sidebar { position: fixed; }`. The gallery uses a .sidebar inside
+   .gallery-sidebar so we scope the rules here to keep it in the normal flow. */
+.gallery-sidebar > .sidebar {
+  position: sticky !important;
+  top: 100px !important; /* match earlier behaviour (adjust for navbar if needed) */
+  z-index: 2 !important; /* sit above normal content but below modals/lightbox */
+  height: auto !important;
+  max-height: 80vh;
+  overflow: auto;
+}
+
 .school-header {
   margin-bottom: 20px;
   border-bottom: 1px solid #e0e0e0;

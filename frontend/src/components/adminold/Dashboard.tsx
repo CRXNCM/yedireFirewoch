@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
 import { FaGraduationCap, FaSchool, FaHandsHelping, FaUsers, FaChartLine } from 'react-icons/fa';
 import CountUp from 'react-countup';
 import { apiService } from '../../utils/apiClient';
-import { School, ApiResponse } from '../../types/database';
+import { School } from '../../types/database';
 import '../../styles/admin/Dashboard.css';
 
 interface DashboardStats {

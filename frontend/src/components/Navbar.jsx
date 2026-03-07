@@ -48,6 +48,7 @@ const Navbar = () => {
               <li><Link to="/achievements" className={location.pathname === '/achievements' ? 'active-link' : ''}>ACHIEVEMENTS</Link></li>
               <li><Link to="/gallery" className={location.pathname === '/gallery' ? 'active-link' : ''}>GALLERY</Link></li>
               <li><Link to="/contacts" className={location.pathname === '/contacts' ? 'active-link' : ''}>CONTACTS</Link></li>
+              <li><Link to="/admin" className={location.pathname === '/admin' ? 'active-link' : ''}>ADMIN</Link></li>
             </ul>
           </div>
           

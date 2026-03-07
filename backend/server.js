@@ -76,6 +76,16 @@ app.get('/api/cors-test', (req, res) => {
   });
 });
 
+// Serve static files from frontend build (for production)
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static(path.join(__dirname, '../frontend/dist')));
+  
+  // Handle client-side routing - send all non-API requests to index.html
+  app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, '../frontend/dist/index.html'));
+  });
+}
+
 // Error handling middleware
 app.use((error, req, res, next) => {
   console.error('Server error:', error);

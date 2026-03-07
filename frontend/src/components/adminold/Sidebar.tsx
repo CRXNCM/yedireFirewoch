@@ -9,7 +9,6 @@ import {
   FaDonate,
   FaSignOutAlt,
   FaGlobe,
-  FaComments,
   FaQuoteRight,
   FaHandshake,
   FaBullhorn,
